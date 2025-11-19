@@ -16,6 +16,7 @@
 , glib
 , gtk3
 , libdrm
+, libgbm
 , libnotify
 , libsecret
 , libuuid
@@ -81,6 +82,7 @@ let
       glib
       gtk3
       libdrm
+      libgbm
       libglvnd
       libnotify
       libsecret
