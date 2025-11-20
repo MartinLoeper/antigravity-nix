@@ -35,7 +35,22 @@
             curl
             jq
             gh
+            nodejs_20
+            nodePackages.playwright-chromium
           ];
+
+          shellHook = ''
+            echo "Antigravity development environment"
+            echo "Available commands:"
+            echo "  ./scripts/check-version.sh  - Check current vs latest version"
+            echo "  ./scripts/update-version.sh - Update to latest version"
+
+            # Ensure playwright browsers are installed
+            if ! npx playwright-chromium --version &>/dev/null; then
+              echo "Installing Playwright browsers..."
+              npx playwright install chromium
+            fi
+          '';
         };
       }
     ) // {
